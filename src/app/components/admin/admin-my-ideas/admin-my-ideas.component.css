@@ -1,0 +1,453 @@
+.main-content {
+  padding: var(--space-4) 0;
+}
+
+.page-title {
+  margin-bottom: var(--space-4);
+  color: var(--neutral-800);
+  font-size: 1.5rem;
+}
+
+.ideas-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.idea-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: var(--space-3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: var(--space-3);
+}
+
+.idea-content {
+  flex: 1;
+}
+
+.idea-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.idea-title {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.idea-status {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.idea-status.pending {
+  background-color: var(--neutral-100);
+  color: var(--neutral-600);
+}
+
+.idea-status.approved {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.idea-status.implemented {
+  background-color: var(--primary-100);
+  color: var(--primary-700);
+}
+
+.idea-description {
+  color: var(--neutral-600);
+  font-size: 0.875rem;
+  margin-bottom: var(--space-2);
+}
+
+.idea-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--neutral-500);
+}
+
+.idea-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 120px;
+}
+
+.vote-actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.vote-btn {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid var(--neutral-200);
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.vote-btn.voted {
+  background-color: var(--primary-50);
+  border-color: var(--primary-200);
+  color: var(--primary-700);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.comments-modal {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--neutral-200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--neutral-500);
+}
+
+.comments-list {
+  padding: var(--space-3);
+  overflow-y: auto;
+  max-height: 40vh;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.comment-item {
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--neutral-100);
+}
+
+.comment-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-1);
+  font-size: 0.75rem;
+}
+
+.comment-author {
+  font-weight: 600;
+  color: var(--neutral-700);
+}
+
+.comment-time {
+  color: var(--neutral-500);
+}
+
+.comment-content p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--neutral-700);
+}
+
+.no-comments {
+  text-align: center;
+  padding: var(--space-4);
+  color: var(--neutral-500);
+}
+
+.add-comment-form {
+  padding: var(--space-3);
+}
+
+.add-comment-form h4 {
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+  font-size: 1rem;
+}
+
+.comment-input {
+  width: 100%;
+  padding: var(--space-2);
+  border: 1px solid var(--neutral-300);
+  border-radius: 4px;
+  margin-bottom: var(--space-2);
+  font-family: inherit;
+  resize: vertical;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-2);
+}
+
+/* Dark mode styles */
+:host-context([data-theme="dark"]) .main-content {
+  background-color: var(--bg-primary);
+}
+
+:host-context([data-theme="dark"]) .page-title {
+  color: var(--primary-500);
+}
+
+:host-context([data-theme="dark"]) .idea-card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+:host-context([data-theme="dark"]) .idea-title,
+:host-context([data-theme="dark"]) .idea-description,
+:host-context([data-theme="dark"]) .idea-meta {
+  color: var(--card-text);
+}
+
+/* Status badges in dark mode - deeper colors with white text */
+:host-context([data-theme="dark"]) .idea-status.pending {
+  background-color: #4B5563; /* Deeper neutral */
+  color: white;
+}
+
+:host-context([data-theme="dark"]) .idea-status.approved {
+  background-color: #15803D; /* Deeper green */
+  color: white;
+}
+
+:host-context([data-theme="dark"]) .idea-status.implemented {
+  background-color: var(--primary-700); /* Deeper orange */
+  color: white;
+}
+
+/* Vote buttons in dark mode */
+:host-context([data-theme="dark"]) .vote-btn {
+  background-color: #3a3a3a;
+  color: white;
+  border: 1px solid #4a4a4a;
+}
+
+:host-context([data-theme="dark"]) .vote-btn:hover {
+  background-color: #4a4a4a;
+}
+
+:host-context([data-theme="dark"]) .vote-btn.voted {
+  background-color: var(--primary-700);
+  color: white;
+  border-color: var(--primary-800);
+}
+
+/* Modal styling in dark mode */
+:host-context([data-theme="dark"]) .modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+:host-context([data-theme="dark"]) .comments-modal {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+}
+
+:host-context([data-theme="dark"]) .modal-header {
+  border-color: #3a3a3a;
+}
+
+:host-context([data-theme="dark"]) .modal-header h3 {
+  color: var(--primary-500);
+}
+
+:host-context([data-theme="dark"]) .close-btn {
+  color: var(--card-text);
+}
+
+:host-context([data-theme="dark"]) .comments-list {
+  border-color: #3a3a3a;
+}
+
+:host-context([data-theme="dark"]) .comment-item {
+  border-color: #3a3a3a;
+}
+
+:host-context([data-theme="dark"]) .comment-author {
+  color: var(--primary-300);
+}
+
+:host-context([data-theme="dark"]) .comment-content p {
+  color: var(--card-text);
+}
+
+:host-context([data-theme="dark"]) .comment-input {
+  background-color: #3a3a3a;
+  color: white;
+  border-color: #4a4a4a;
+}
+
+:host-context([data-theme="dark"]) .comment-input:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.2);
+}
+
+:host-context([data-theme="dark"]) .no-comments {
+  color: var(--text-tertiary);
+}
+
+/* Reset button styles to match popular-ideas component */
+.btn {
+  padding: var(--space-1) var(--space-2);
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--primary-500);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-600);
+}
+
+.btn-outline {
+  background-color: white;
+  color: var(--neutral-700);
+  border: 1px solid var(--neutral-300);
+}
+
+.btn-outline:hover {
+  background-color: var(--neutral-50);
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #bd2130;
+}
+
+/* Vote buttons styling to match popular-ideas */
+.vote-actions {
+  display: flex;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.vote-btn {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid var(--neutral-200);
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--neutral-700);
+}
+
+.vote-btn:hover {
+  background-color: var(--neutral-50);
+}
+
+.vote-btn.upvote.voted {
+  background-color: var(--primary-50);
+  color: var(--primary-700);
+  border-color: var(--primary-200);
+}
+
+.vote-btn.downvote.voted {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+/* Dark mode adjustments from popular-ideas */
+:host-context([data-theme="dark"]) .vote-btn,
+:host-context([data-theme="dark"]) .comment-button {
+  background-color: var(--primary-500);
+  color: white;
+  border-color: var(--primary-600);
+}
+
+:host-context([data-theme="dark"]) .vote-btn:hover,
+:host-context([data-theme="dark"]) .comment-button:hover {
+  background-color: var(--primary-600);
+  color: white;
+}
+
+:host-context([data-theme="dark"]) .vote-btn.upvote.voted,
+:host-context([data-theme="dark"]) .vote-btn.downvote.voted {
+  background-color: var(--primary-700);
+  color: white;
+  border-color: var(--primary-800);
+}
+
+:host-context([data-theme="dark"]) .btn-outline {
+  background-color: #3a3a3a;
+  color: white;
+  border: 1px solid #4a4a4a;
+}
+
+:host-context([data-theme="dark"]) .btn-outline:hover {
+  background-color: #4a4a4a;
+}
+
+:host-context([data-theme="dark"]) .btn-primary {
+  background-color: var(--primary-600);
+  color: white;
+}
+
+:host-context([data-theme="dark"]) .btn-danger {
+  background-color: #bd2130;
+  color: white;
+}
+
+/* Pagination controls */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+

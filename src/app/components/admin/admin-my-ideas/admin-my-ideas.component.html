@@ -1,0 +1,94 @@
+<main class="main-content">
+  <div class="container">
+    <h2 class="page-title" style="color: #FF7A00">My Ideas (Admin)</h2>
+    <div class="ideas-list">
+      <div *ngFor="let idea of myIdeas" class="idea-card">
+        <div class="idea-content">
+          <div class="idea-header">
+            <h3 class="idea-title">{{idea.title}}</h3>
+            <span class="idea-status" [ngClass]="idea.status">{{idea.status}}</span>
+          </div>
+          <p class="idea-description">{{idea.description}}</p>
+          <div class="idea-meta">
+            <span class="timestamp">{{idea.timestamp}} by {{getDisplayName(idea.authorId)}}</span>
+            <!-- <span class="stats">
+              <span class="votes">👍 {{idea.upvotes}}   👎 {{idea.downvotes}}</span>
+              <span class="comments">💬 {{idea.commentsList.length}} comments</span>
+            </span> -->
+          </div>
+        </div>
+        <div class="idea-actions">
+          <!-- <button class="btn btn-primary">Edit</button> -->
+          <div class="vote-actions">
+            <button 
+              class="vote-btn upvote" 
+              [ngClass]="{'voted': idea.userVote === 'up'}"
+              (click)="vote(idea, 'up')"
+            >
+              👍 {{idea.upvotes}}
+            </button>
+            <button 
+              class="vote-btn downvote" 
+              [ngClass]="{'voted': idea.userVote === 'down'}"
+              (click)="vote(idea, 'down')"
+            >
+              👎 {{idea.downvotes}}
+            </button>
+          </div>
+          <button class="btn btn-outline" (click)="viewComments(idea)">Comments</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Comments Modal -->
+<div *ngIf="selectedIdea" class="modal-overlay">
+  <div class="comments-modal">
+    <div class="modal-header">
+      <h3>Comments for "{{selectedIdea.title}}"</h3>
+      <button class="close-btn" (click)="closeCommentsModal()">×</button>
+    </div>
+    <div class="comments-list">
+      <div *ngIf="selectedIdea.commentsList.length === 0" class="no-comments">
+        No comments yet.
+      </div>
+      <ng-container *ngIf="selectedIdea.commentsList.length > 0">
+        <div *ngFor="let comment of getVisibleComments()" class="comment-item">
+          <div class="comment-header">
+            <span class="comment-author">{{getDisplayName(comment.authorId)}}</span>
+            <span class="comment-time">{{comment.timestamp}}</span>
+          </div>
+          <div class="comment-content">
+            <p>{{comment.text}}</p>
+          </div>
+        </div>
+        <div *ngIf="currentPage < totalPages - 1" class="pagination-controls">
+          <button class="btn btn-outline" (click)="nextPage()">Next</button>
+        </div>
+        <div *ngIf="currentPage > 0" class="pagination-controls">
+          <button class="btn btn-outline" (click)="prevPage()">Previous</button>
+        </div>
+      </ng-container>
+    </div>
+    
+    <!-- Add Comment Form -->
+    <div class="add-comment-form">
+      <h4>Add a Comment</h4>
+      <textarea 
+        [(ngModel)]="newComment" 
+        placeholder="Write your comment here..." 
+        rows="3"
+        class="comment-input"
+      ></textarea>
+      <button 
+        class="btn btn-primary" 
+        [disabled]="!newComment.trim()" 
+        (click)="addComment()"
+      >
+        Submit Comment
+      </button>
+    </div>
+  </div>
+</div>
+

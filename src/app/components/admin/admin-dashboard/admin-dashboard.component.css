@@ -1,0 +1,939 @@
+.admin-dashboard {
+  padding: 1.5rem 0;
+}
+
+.page-title {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  color: #333;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 992px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4361ee;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  color: #666;
+}
+
+.admin-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 992px) {
+  .admin-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admin-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.top-ideas {
+  display: grid;
+  gap: 1rem;
+}
+
+.top-idea-card {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.idea-title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.idea-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.vote-bars {
+  display: flex;
+  height: 8px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.vote-bar {
+  height: 100%;
+  color: transparent;
+  font-size: 0;
+}
+
+.vote-bar.upvotes {
+  background-color: #4caf50;
+}
+
+.vote-bar.downvotes {
+  background-color: #f44336;
+}
+
+.idea-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.activity-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+.activity-item.new-idea {
+  background-color: #e3f2fd;
+}
+
+.activity-item.vote {
+  background-color: #e8f5e9;
+}
+
+.activity-item.comment {
+  background-color: #fff8e1;
+}
+
+.activity-icon {
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-text {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.activity-time {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 576px) {
+  .filters {
+    flex-direction: column;
+  }
+}
+
+.search-box {
+  flex: 1;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.status-filter select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.ideas-table {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+.status-badge.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.approved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-badge.rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.status-badge.implemented {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.vote-count {
+  font-size: 0.875rem;
+}
+
+.vote-count.upvotes {
+  color: #4caf50;
+}
+
+.vote-count.downvotes {
+  color: #f44336;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+.btn-outline:hover {
+  background-color: #f5f5f5;
+}
+
+.btn-success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #43a047;
+}
+
+.btn-danger {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #e53935;
+}
+
+.btn-primary {
+  background-color: #4361ee;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #3a56d4;
+}
+
+.btn-text {
+  background-color: transparent;
+  color: #4361ee;
+  padding: 0.25rem 0.5rem;
+}
+
+.btn-text:hover {
+  background-color: rgba(67, 97, 238, 0.1);
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.idea-details {
+  margin-bottom: 1.5rem;
+}
+
+.idea-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.idea-status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  text-transform: capitalize;
+}
+
+.idea-content {
+  margin-bottom: 1rem;
+}
+
+.idea-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.idea-tag {
+  background-color: #f5f5f5;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.idea-stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-value.upvotes {
+  color: #4caf50;
+}
+
+.stat-value.downvotes {
+  color: #f44336;
+}
+
+.vote-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.vote-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.vote-btn.upvote:hover, .vote-btn.upvote.voted {
+  background-color: #e8f5e9;
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+.vote-btn.downvote:hover, .vote-btn.downvote.voted {
+  background-color: #ffebee;
+  border-color: #f44336;
+  color: #f44336;
+}
+
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Comments Modal Styles */
+.comments-modal {
+  max-width: 700px;
+}
+
+.comments-list {
+  margin-bottom: 1.5rem;
+  max-height: 350px; /* Increased from previous value */
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+
+.no-comments {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.comment-item {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s ease;
+}
+
+.comment-item:hover {
+  background-color: #f9f9f9;
+}
+
+.comment-item:last-child {
+  border-bottom: none;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.comment-author {
+  font-weight: 600;
+  color: #333;
+}
+
+.comment-time {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.comment-content p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.comment-section-title {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.add-comment {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem; /* Added space below */
+}
+
+.add-comment textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+
+.add-comment textarea:focus {
+  border-color: #4361ee;
+  outline: none;
+}
+
+.add-comment button {
+  float: right;
+  margin-bottom: 1rem; /* Added space below button */
+}
+
+/* Clear float to prevent container collapse */
+.add-comment::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Dark mode styles for admin dashboard */
+:host-context([data-theme="dark"]) .admin-dashboard {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+:host-context([data-theme="dark"]) .page-title {
+  color: var(--primary-500);
+}
+
+:host-context([data-theme="dark"]) .stat-card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+:host-context([data-theme="dark"]) .stat-number {
+  color: var(--primary-400);
+}
+
+:host-context([data-theme="dark"]) .stat-label {
+  color: var(--card-text);
+}
+
+:host-context([data-theme="dark"]) .admin-section {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+:host-context([data-theme="dark"]) .section-title {
+  color: var(--primary-500);
+  border-bottom-color: #3a3a3a;
+}
+
+:host-context([data-theme="dark"]) .top-idea-card {
+  border-color: #3a3a3a;
+  background-color: #2d2d2d;
+}
+
+:host-context([data-theme="dark"]) .idea-title {
+  color: var(--card-text);
+}
+
+:host-context([data-theme="dark"]) .idea-meta {
+  color: var(--text-tertiary);
+}
+
+:host-context([data-theme="dark"]) .activity-item {
+  background-color: #2d2d2d;
+}
+
+:host-context([data-theme="dark"]) .activity-item.new-idea {
+  background-color: #1a365d;
+}
+
+:host-context([data-theme="dark"]) .activity-item.vote {
+  background-color: #1e3a2f;
+}
+
+:host-context([data-theme="dark"]) .activity-item.comment {
+  background-color: #3d3522;
+}
+
+:host-context([data-theme="dark"]) .activity-text {
+  color: var(--card-text);
+}
+
+:host-context([data-theme="dark"]) .activity-time {
+  color: var(--text-tertiary);
+}
+
+:host-context([data-theme="dark"]) .search-box input,
+:host-context([data-theme="dark"]) .status-filter select {
+  background-color: #2d2d2d;
+  color: var(--card-text);
+  border-color: #3a3a3a;
+}
+
+:host-context([data-theme="dark"]) th {
+  background-color: #2d2d2d;
+  color: var(--primary-500);
+}
+
+:host-context([data-theme="dark"]) td {
+  color: var(--card-text);
+  border-bottom-color: #3a3a3a;
+}
+
+:host-context([data-theme="dark"]) tr:hover {
+  background-color: #2d2d2d;
+}
+
+/* Modal styles for dark mode */
+:host-context([data-theme="dark"]) .modal-container {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+:host-context([data-theme="dark"]) .modal-header {
+  border-bottom-color: #3a3a3a;
+}
+
+:host-context([data-theme="dark"]) .modal-title {
+  color: var(--primary-500);
+}
+
+:host-context([data-theme="dark"]) .modal-close {
+  color: var(--text-tertiary);
+}
+
+:host-context([data-theme="dark"]) .idea-author,
+:host-context([data-theme="dark"]) .idea-time {
+  color: var(--text-tertiary);
+}
+
+:host-context([data-theme="dark"]) .idea-content p {
+  color: var(--card-text);
+}
+
+:host-context([data-theme="dark"]) .idea-tag {
+  background-color: #3a3a3a;
+  color: var(--text-tertiary);
+}
+
+:host-context([data-theme="dark"]) .comment-item {
+  background-color: #2d2d2d;
+  border-bottom-color: #3a3a3a;
+}
+
+:host-context([data-theme="dark"]) .comment-item:hover {
+  background-color: #333333;
+}
+
+:host-context([data-theme="dark"]) .comment-author {
+  color: var(--primary-400);
+}
+
+:host-context([data-theme="dark"]) .comment-time {
+  color: var(--text-tertiary);
+}
+
+:host-context([data-theme="dark"]) .comment-content p {
+  color: var(--card-text);
+}
+
+:host-context([data-theme="dark"]) .comment-section-title {
+  color: var(--primary-400);
+}
+
+:host-context([data-theme="dark"]) .add-comment textarea {
+  background-color: #2d2d2d;
+  color: var(--card-text);
+  border-color: #3a3a3a;
+}
+
+:host-context([data-theme="dark"]) .add-comment textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+:host-context([data-theme="dark"]) .add-comment textarea:focus {
+  border-color: var(--primary-500);
+  outline: none;
+}
+
+/* Status badges in dark mode */
+:host-context([data-theme="dark"]) .status-badge.pending {
+  background-color: #4B5563;
+  color: white;
+}
+
+:host-context([data-theme="dark"]) .status-badge.approved {
+  background-color: #15803D;
+  color: white;
+}
+
+:host-context([data-theme="dark"]) .status-badge.rejected {
+  background-color: #9B1C1C;
+  color: white;
+}
+
+:host-context([data-theme="dark"]) .status-badge.implemented {
+  background-color: var(--primary-700);
+  color: white;
+}
+
+/* Vote counts in dark mode */
+:host-context([data-theme="dark"]) .vote-count.upvotes {
+  color: #4caf50;
+}
+
+:host-context([data-theme="dark"]) .vote-count.downvotes {
+  color: #f44336;
+}
+
+/* Vote bars in dark mode */
+:host-context([data-theme="dark"]) .vote-bars {
+  background-color: #3a3a3a;
+}
+
+:host-context([data-theme="dark"]) .vote-bar.upvotes {
+  background-color: #4caf50;
+}
+
+:host-context([data-theme="dark"]) .vote-bar.downvotes {
+  background-color: #f44336;
+}
+
+/* Button styles for dark mode in admin dashboard */
+:host-context([data-theme="dark"]) .btn-outline {
+  background-color: #3a3a3a;
+  color: white;
+  border-color: #4a4a4a;
+}
+
+:host-context([data-theme="dark"]) .btn-outline:hover {
+  background-color: #4a4a4a;
+  color: white;
+  border-color: #5a5a5a;
+}
+
+/* Specific styling for action buttons in the table */
+:host-context([data-theme="dark"]) .actions .btn-sm.btn-outline {
+  background-color: #3a3a3a;
+  color: white;
+  border-color: #4a4a4a;
+}
+
+:host-context([data-theme="dark"]) .actions .btn-sm.btn-outline:hover {
+  background-color: #4a4a4a;
+  color: white;
+  border-color: #5a5a5a;
+}
+
+/* Ensure text buttons are also visible */
+:host-context([data-theme="dark"]) .btn-text {
+  color: var(--primary-400);
+}
+
+:host-context([data-theme="dark"]) .btn-text:hover {
+  background-color: rgba(255, 122, 0, 0.2);
+  color: var(--primary-300);
+}
+
+/* Ensure all action buttons have good contrast */
+:host-context([data-theme="dark"]) .actions button {
+  margin: 2px;
+}
+
+:host-context([data-theme="dark"]) .actions .btn-success {
+  background-color: #15803D;
+  color: white;
+}
+
+:host-context([data-theme="dark"]) .actions .btn-success:hover {
+  background-color: #166534;
+}
+
+:host-context([data-theme="dark"]) .actions .btn-danger {
+  background-color: #9B1C1C;
+  color: white;
+}
+
+:host-context([data-theme="dark"]) .actions .btn-danger:hover {
+  background-color: #7F1D1D;
+}
+
+/* Add these styles to your component CSS */
+.detail-section {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.detail-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.detail-value {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.idea-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.idea-tag {
+  background-color: #f0f0f0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.attachments-list {
+  margin-top: 0.5rem;
+}
+
+.attachment-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.attachment-icon {
+  margin-right: 0.5rem;
+}
+
+.attachment-name {
+  font-size: 0.9rem;
+  color: #333;
+  margin-right: 0.5rem;
+}
+
+.attachment-size {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* Dark mode adjustments */
+:host-context([data-theme="dark"]) .detail-title {
+  color: #e0e0e0;
+}
+
+:host-context([data-theme="dark"]) .detail-value {
+  color: #bbb;
+}
+
+:host-context([data-theme="dark"]) .idea-tag {
+  background-color: #3a3a3a;
+  color: #ddd;
+}
+
+:host-context([data-theme="dark"]) .attachment-item {
+  background-color: #2a2a2a;
+}
+
+:host-context([data-theme="dark"]) .attachment-name {
+  color: #ddd;
+}
+
+:host-context([data-theme="dark"]) .attachment-size {
+  color: #aaa;
+}
+
+/* Make the modal larger to fit all content */
+.modal-container {
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+}

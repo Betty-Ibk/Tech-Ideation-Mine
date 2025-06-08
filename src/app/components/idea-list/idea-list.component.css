@@ -1,0 +1,301 @@
+.main-content {
+  padding: var(--space-4) 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.page-title {
+  margin-bottom: var(--space-4);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.ideas-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.idea-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.idea-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 var(--space-2);
+  color: var(--neutral-800);
+}
+
+.idea-description {
+  color: var(--neutral-600);
+  margin: 0 0 var(--space-3);
+  line-height: 1.5;
+}
+
+.idea-meta {
+  display: flex;
+  gap: var(--space-3);
+  color: var(--neutral-500);
+  font-size: 0.875rem;
+}
+
+.idea-actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.vote-button,
+.comment-button {
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--primary-200);
+  border-radius: 4px;
+  background-color: white;
+  color: var(--neutral-600);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vote-button:hover,
+.comment-button:hover {
+  background-color: var(--primary-50);
+  border-color: var(--primary-300);
+}
+
+.vote-button.voted {
+  background-color: var(--primary-100);
+  border-color: var(--primary-400);
+  color: var(--primary-600);
+}
+
+.upvote.voted {
+  color: var(--success-600);
+  border-color: var(--success-300);
+  background-color: var(--success-50);
+}
+
+.downvote.voted {
+  color: var(--danger-600);
+  border-color: var(--danger-300);
+  background-color: var(--danger-50);
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.comments-modal {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--neutral-200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--neutral-800);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--neutral-500);
+}
+
+.comments-list {
+  padding: var(--space-3);
+  overflow-y: auto;
+  max-height: 40vh;
+}
+
+.comment-item {
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-1);
+}
+
+.comment-author {
+  font-weight: 600;
+  color: var(--neutral-700);
+}
+
+.comment-time {
+  color: var(--neutral-500);
+  font-size: 0.875rem;
+}
+
+.comment-content p {
+  margin: 0;
+  color: var(--neutral-600);
+}
+
+.no-comments {
+  text-align: center;
+  padding: var(--space-4);
+  color: var(--neutral-500);
+}
+
+.add-comment-form {
+  padding: var(--space-3);
+  border-top: 1px solid var(--neutral-200);
+}
+
+.add-comment-form h4 {
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+  color: var(--neutral-700);
+}
+
+.comment-input {
+  width: 100%;
+  padding: var(--space-2);
+  border: 1px solid var(--neutral-300);
+  border-radius: 4px;
+  margin-bottom: var(--space-2);
+  font-family: inherit;
+  resize: vertical;
+}
+
+.comment-input:focus {
+  outline: none;
+  border-color: var(--primary-400);
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.1);
+}
+
+.btn {
+  padding: var(--space-2) var(--space-3);
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-500);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-600);
+}
+
+.btn-primary:disabled {
+  background-color: var(--neutral-300);
+  cursor: not-allowed;
+}
+
+.btn-outline {
+  background-color: white;
+  color: var(--primary-500);
+  border: 1px solid var(--primary-300);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-50);
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-2);
+}
+
+/* Dark theme support */
+:host-context([data-theme="dark"]) .idea-card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+}
+
+:host-context([data-theme="dark"]) .idea-title,
+:host-context([data-theme="dark"]) .idea-description,
+:host-context([data-theme="dark"]) .idea-meta {
+  color: var(--card-text);
+}
+
+:host-context([data-theme="dark"]) .vote-button,
+:host-context([data-theme="dark"]) .comment-button {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  border-color: var(--neutral-600);
+}
+
+:host-context([data-theme="dark"]) .vote-button:hover,
+:host-context([data-theme="dark"]) .comment-button:hover {
+  background-color: var(--neutral-700);
+}
+
+:host-context([data-theme="dark"]) .vote-button.voted {
+  background-color: var(--neutral-700);
+}
+
+:host-context([data-theme="dark"]) .upvote.voted {
+  color: var(--success-400);
+  border-color: var(--success-500);
+  background-color: rgba(var(--success-rgb), 0.2);
+}
+
+:host-context([data-theme="dark"]) .downvote.voted {
+  color: var(--danger-400);
+  border-color: var(--danger-500);
+  background-color: rgba(var(--danger-rgb), 0.2);
+}
+
+/* Modal styling in dark mode */
+:host-context([data-theme="dark"]) .modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+:host-context([data-theme="dark"]) .comments-modal {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+}
+
+:host-context([data-theme="dark"]) .modal-header {
+  border-bottom-color: var(--neutral-700);
+}
+
+:host-context([data-theme="dark"]) .modal-header h3 {
+  color: var(--card-text);
+}

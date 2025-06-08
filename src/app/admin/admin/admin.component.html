@@ -1,0 +1,9 @@
+<h2>Admin</h2>
+<nav>
+  <a routerLink="./" routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }" ariaCurrentWhenActive="page">Dashboard</a>
+  <a routerLink="./crises" routerLinkActive="active" ariaCurrentWhenActive="page">Manage Crises</a>
+  <a routerLink="./heroes" routerLinkActive="active" ariaCurrentWhenActive="page">Manage Heroes</a>
+  <a routerLink="./my-ideas" routerLinkActive="active" ariaCurrentWhenActive="page">My Ideas</a>
+</nav>
+<router-outlet></router-outlet>

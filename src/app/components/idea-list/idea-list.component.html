@@ -1,0 +1,138 @@
+<main class="main-content">
+  <div class="container">
+    <!-- User Engagement Metrics -->
+    <div class="metrics-container">
+      <h2 class="metrics-title">Your Innovation Impact</h2>
+      
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon">💡</div>
+          <div class="metric-value">{{ userMetrics.topIdeas }}</div>
+          <div class="metric-label">Ideas in Top 10%</div>
+        </div>
+        
+        <div class="metric-card">
+          <div class="metric-icon">🔥</div>
+          <div class="metric-value">{{ userMetrics.engagementRate }}%</div>
+          <div class="metric-label">Engagement Rate</div>
+        </div>
+        
+        <div class="metric-card">
+          <div class="metric-icon">⭐</div>
+          <div class="metric-value">{{ userMetrics.communityPoints }}</div>
+          <div class="metric-label">Community Points</div>
+        </div>
+        
+        <div class="metric-card">
+          <div class="metric-icon">🚀</div>
+          <div class="metric-value">{{ userMetrics.implementedIdeas }}</div>
+          <div class="metric-label">Ideas Implemented</div>
+        </div>
+      </div>
+      
+      <div class="achievement-banner">
+        <div class="achievement-icon">🎯</div>
+        <div class="achievement-content">
+          <div class="achievement-title">Weekly Goal Progress</div>
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="userMetrics.weeklyGoalProgress"></div>
+          </div>
+          <div class="achievement-text">
+            {{ getWeeklyGoalMessage(userMetrics.weeklyIdeasSubmitted) }}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h2 class="page-title" style="color: #FF7A00">Recent Ideas</h2>
+    <div class="ideas-list">
+      @for (idea of ideas; track idea.id) {
+        <div class="idea-card">
+          <div class="idea-content">
+            <h3 class="idea-title">{{idea.title}}</h3>
+            <p class="idea-description">{{idea.description}}</p>
+            <div class="idea-meta">
+              <span class="author">{{getDisplayName(idea.authorId, idea.author)}}</span>
+              <span class="timestamp">{{idea.timestamp}}</span>
+            </div>
+          </div>
+          <div class="idea-actions">
+            <button 
+              class="vote-button upvote" 
+              [class.voted]="idea.userVote === 'up'"
+              (click)="vote(idea, 'up')">
+              👍 {{idea.upvotes}}
+            </button>
+            <button 
+              class="vote-button downvote" 
+              [class.voted]="idea.userVote === 'down'"
+              (click)="vote(idea, 'down')">
+              👎 {{idea.downvotes}}
+            </button>
+            <button class="comment-button" (click)="viewComments(idea)">
+              💬 {{idea.comments}}
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Comments Modal -->
+  @if (selectedIdea) {
+    <div class="modal-overlay">
+      <div class="comments-modal">
+        <div class="modal-header">
+          <h3>Comments for "{{selectedIdea.title}}"</h3>
+          <button class="close-btn" (click)="closeCommentsModal()">×</button>
+        </div>
+        <div class="comments-list">
+          @if (selectedIdea.commentsList && selectedIdea.commentsList.length === 0) {
+            <div class="no-comments">
+              No comments yet.
+            </div>
+          }
+          @for (comment of getVisibleComments(); track comment.timestamp) {
+            <div class="comment-item">
+              <div class="comment-header">
+                <span class="comment-author">{{getDisplayName(comment.authorId, comment.author)}}</span>
+                <span class="comment-time">{{comment.timestamp}}</span>
+              </div>
+              <div class="comment-content">
+                <p>{{comment.text}}</p>
+              </div>
+            </div>
+          }
+          @if (currentPage < totalPages - 1) {
+            <div class="pagination-controls">
+              <button class="btn btn-outline" (click)="nextPage()">Next</button>
+            </div>
+          }
+          @if (currentPage > 0) {
+            <div class="pagination-controls">
+              <button class="btn btn-outline" (click)="prevPage()">Previous</button>
+            </div>
+          }
+        </div>
+        
+        <!-- Add Comment Form -->
+        <div class="add-comment-form">
+          <h4>Add a Comment</h4>
+          <textarea 
+            [(ngModel)]="newComment" 
+            placeholder="Write your comment here..." 
+            rows="3"
+            class="comment-input"
+          ></textarea>
+          <button 
+            class="btn btn-primary" 
+            [disabled]="!newComment.trim()" 
+            (click)="addComment()"
+          >
+            Submit Comment
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</main>
