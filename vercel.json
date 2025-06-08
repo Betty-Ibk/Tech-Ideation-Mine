@@ -1,8 +1,6 @@
 {
   "public": true,
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": "angular",
+  "outputDirectory": "dist/Tech-Ideation-Mine/browser",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
