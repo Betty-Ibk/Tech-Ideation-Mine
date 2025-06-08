@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "public": "dist/Tech-Ideation-Mine/browser"
+}
