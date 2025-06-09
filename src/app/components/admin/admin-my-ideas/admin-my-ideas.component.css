@@ -451,3 +451,148 @@
 }
 
 
+/* ADDITIONALS */
+/* Mobile responsive styles for Admin Ideas - Add to your existing CSS */
+
+@media (max-width: 640px) {
+  .idea-card {
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-2);
+  }
+  
+  .idea-content {
+    order: 1;
+  }
+  
+  .idea-actions {
+    order: 2;
+    min-width: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin-top: var(--space-2);
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--neutral-100);
+  }
+  
+  .idea-header {
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin-bottom: var(--space-1);
+  }
+  
+  .idea-title {
+    font-size: 1rem;
+    flex: 1;
+    min-width: 0;
+    margin-right: var(--space-2);
+  }
+  
+  .idea-status {
+    flex-shrink: 0;
+    align-self: flex-start;
+  }
+  
+  .idea-description {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    margin-bottom: var(--space-1);
+  }
+  
+  .idea-meta {
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: var(--space-1);
+  }
+  
+  .vote-actions {
+    flex: 1;
+    min-width: 120px;
+    margin-bottom: 0;
+  }
+  
+  .vote-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    min-height: 32px;
+    flex: 1;
+    min-width: 80px;
+    max-width: 120px;
+  }
+  
+  .btn-outline,
+  .btn-primary,
+  .btn-danger {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Dark mode mobile adjustments */
+  :host-context([data-theme="dark"]) .idea-actions {
+    border-top-color: var(--border-color);
+  }
+  
+  /* Comments modal mobile adjustments */
+  .comments-modal {
+    width: 95%;
+    height: 85vh;
+    margin: 10px;
+  }
+  
+  .modal-header {
+    padding: var(--space-2);
+  }
+  
+  .modal-header h3 {
+    font-size: 1rem;
+    margin-right: var(--space-2);
+  }
+  
+  .comments-list {
+    padding: var(--space-2);
+    max-height: 50vh;
+  }
+  
+  .add-comment-form {
+    padding: var(--space-2);
+  }
+  
+  .comment-input {
+    min-height: 80px;
+    font-size: 0.875rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .idea-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .vote-actions {
+    min-width: auto;
+    margin-bottom: var(--space-1);
+  }
+  
+  .btn {
+    max-width: none;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+  
+  .btn:last-child {
+    margin-bottom: 0;
+  }
+}
