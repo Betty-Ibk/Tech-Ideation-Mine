@@ -630,6 +630,94 @@ interface Comment {
         height: 80vh;
       }
     }
+
+    /* Add these styles to the existing @media (max-width: 640px) section */
+
+@media (max-width: 640px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-container {
+    max-width: 100%;
+  }
+  
+  .comments-modal {
+    width: 95%;
+    height: 80vh;
+  }
+  
+  /* NEW MOBILE FIXES - Add these to your existing media query */
+  
+  .idea-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+  
+  .idea-time {
+    align-self: flex-end;
+    margin-top: -1.5rem;
+  }
+  
+  .idea-footer {
+    flex-direction: column;
+    gap: var(--space-2);
+    align-items: stretch;
+  }
+  
+  .vote-actions {
+    justify-content: flex-start;
+    order: 2;
+  }
+  
+  .idea-actions {
+    order: 1;
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+  
+  .idea-author {
+    order: 3;
+    text-align: left;
+    padding-top: var(--space-1);
+    border-top: 1px solid var(--neutral-100);
+  }
+  
+  .vote-btn,
+  .comment-btn {
+    padding: 8px 12px;
+    font-size: 0.875rem;
+  }
+  
+  .vote-btn svg,
+  .comment-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .idea-card {
+    padding: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+  
+  .idea-title {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .idea-content {
+    font-size: 0.875rem;
+    margin-bottom: var(--space-2);
+  }
+  
+  /* Dark mode mobile fixes */
+  :host-context([data-theme="dark"]) .idea-author {
+    border-top-color: var(--border-color);
+  }
+}
+
   `]
 })
 export class IdeaFeedComponent implements OnInit, OnDestroy {

@@ -558,6 +558,38 @@ import { ThemeService } from '../../services/theme.service';
   }
 }
 
+  /* Hide only the logo image on smaller screens, keep the text */
+@media (max-width: 768px) {
+  .logo-image {
+    display: none;
+  }
+  
+  /* Reduce gap in logo when image is hidden */
+  .logo {
+    gap: 0;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 576px) {
+  .logo-image {
+    display: none;
+  }
+  
+  /* Make logo text slightly smaller on very small screens */
+  .logo-text {
+    font-size: 1.25rem;
+  }
+  
+  .logo-subtitle {
+    font-size: 0.75rem;
+  }
+  
+  /* Reduce gaps to maximize space for icons */
+  .nav-actions {
+    gap: var(--space-2);
+  }
+}
     /* Dark theme overrides */
     :host-context([data-theme="dark"]) .navbar {
       background-color: var(--navbar-bg);
