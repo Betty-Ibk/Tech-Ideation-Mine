@@ -13,7 +13,7 @@ import { AuthService } from '../../services/auth.service';
       <div class="login-card">
         <div class="login-header">
           <div class="logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/GTCO_logo.svg" alt="GTCO Logo" class="logo-image">
+            <img src="assets/images/gtco-logo.png" alt="GTCO Logo" class="logo-image">
           </div>
           <p class="logo-subtitle">IDEATION MINE</p>
           <h2>Login</h2>
@@ -61,12 +61,16 @@ import { AuthService } from '../../services/auth.service';
   `,
   styles: [`
     .login-container {
-      display: flex;
+       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background: linear-gradient(135deg, var(--primary-400) 0%, var(--primary-600) 100%);
+      background: url('/assets/images/4884792.jpg') no-repeat center center;
+      
+      background-size: cover;
       padding: var(--space-4);
+
+  
     }
     
     .login-card {
@@ -77,6 +81,7 @@ import { AuthService } from '../../services/auth.service';
       max-width: 400px;
       padding: var(--space-4);
       animation: fadeIn 0.5s ease-in-out;
+          
     }
     
     @keyframes fadeIn {

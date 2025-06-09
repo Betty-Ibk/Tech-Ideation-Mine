@@ -14,11 +14,24 @@ import { ThemeService } from '../../services/theme.service';
       <div class="container">
         <div class="nav-content">
           <div class="nav-left">
-            <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+            <!-- <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
               <span class="menu-icon"></span>
-            </button>
+            </button> -->
+           <button class="menu-toggle" 
+        (click)="toggleMenu()" 
+        [class.active]="isMenuOpen"
+        aria-label="Toggle navigation menu">
+            <!-- Menu Icon -->
+            <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+              <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+            </svg>
+            <!-- Close Icon -->
+            <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+              <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+            </svg>
+          </button>
             <div class="logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/GTCO_logo.svg" alt="GTCO Logo" class="logo-image">
+              <img src="assets/images/gtco-logo.png" alt="GTCO Logo" class="logo-image">
               <div class="logo-text-container">
                 <span class="logo-text">IDEATION</span>
                 <span class="logo-subtitle"> Mine</span>
@@ -27,7 +40,10 @@ import { ThemeService } from '../../services/theme.service';
           </div>
           
           <div class="nav-actions">
-            <a routerLink="/new-idea" class="btn btn-primary pulse-animation">+ New Idea</a>
+            <a routerLink="/new-idea" class="btn btn-primary pulse-animation">
+             <span class="btn-text">+ New Idea</span>
+            <span class="btn-text-mobile">+</span>  
+           </a>
             <div class="user-profile" (click)="toggleUserMenu()">
               <img [src]="currentUser?.profileImage || defaultProfileImage" alt="User Avatar" class="avatar">
               <span class="username">{{ currentUser?.name || 'User' }}</span>
@@ -51,7 +67,7 @@ import { ThemeService } from '../../services/theme.service';
 
     <aside class="sidebar" [class.active]="isMenuOpen || isLargeScreen">
       <div class="sidebar-header">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/GTCO_logo.svg" alt="GTCO Logo" class="sidebar-logo">
+        <img src="assets/images/gtco-logo.png" alt="GTCO Logo" class="sidebar-logo">
         <h3 class="sidebar-title">Ideation Mine</h3>
       </div>
       <div class="sidebar-content">
@@ -148,6 +164,7 @@ import { ThemeService } from '../../services/theme.service';
       height: 40px;
       border-radius: 50%;
       cursor: pointer;
+      color: var(--primary-600);
       transition: background-color 0.3s;
     }
 
@@ -481,6 +498,65 @@ import { ThemeService } from '../../services/theme.service';
         display: none;
       }
     }
+    .new-idea-btn {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+.btn-text-mobile {
+  display: none;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .new-idea-btn {
+    padding: 8px 12px;
+    font-size: 0.875rem;
+    min-width: auto;
+  }
+  
+  .btn-text {
+    display: none;
+  }
+  
+  .btn-text-mobile {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  /* Reduce pulse animation intensity on mobile */
+  .pulse-animation {
+    animation: pulse-mobile 2s infinite;
+  }
+  
+  @keyframes pulse-mobile {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(255, 122, 0, 0.5);
+    }
+    70% {
+      transform: scale(1.02);
+      box-shadow: 0 0 0 5px rgba(255, 122, 0, 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(255, 122, 0, 0);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .new-idea-btn {
+    padding: 6px 10px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+}
 
     /* Dark theme overrides */
     :host-context([data-theme="dark"]) .navbar {
