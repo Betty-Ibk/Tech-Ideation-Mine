@@ -423,6 +423,64 @@ interface Idea {
       backface-visibility: hidden;
       perspective: 1000px;
     }
+    /* ADDITIONALS */
+    /* Modal content text positioning - applies to all screen sizes */
+.modal-header h3 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  line-height: 1.3;
+  margin: 0;
+  padding-right: var(--space-2);
+}
+
+.comment-content p {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  line-height: 1.5;
+  max-width: 100%;
+}
+
+.comment-author {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 60%;
+}
+
+.comment-time {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.comment-header {
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 640px) {
+  .idea-card {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .idea-content {
+    padding-right: 0;
+  }
+  
+  .idea-actions {
+    flex-direction: row;
+    justify-content: flex-start;
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .idea-meta {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
   `]
 })export class PopularIdeasComponent implements OnInit {
   popularIdeas: Idea[] = [

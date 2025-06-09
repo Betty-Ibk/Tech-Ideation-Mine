@@ -587,3 +587,111 @@ button:hover,
 }
 
 
+/* ADDITIONS */
+/* Card content containment and proper positioning */
+.card,
+.idea-card,
+.profile-card,
+.section-card,
+.stats-card {
+  overflow: hidden; /* Prevent content from spilling out */
+  position: relative; /* Establish positioning context */
+  padding: var(--space-2); /* Ensure proper internal spacing */
+  word-wrap: break-word; /* Handle long text */
+  word-break: break-word; /* Break long words if necessary */
+}
+
+/* Ensure all content inside cards is properly contained */
+.card *,
+.idea-card *,
+.profile-card *,
+.section-card *,
+.stats-card * {
+  max-width: 100%; /* Prevent overflow */
+  box-sizing: border-box; /* Include padding/border in width calculations */
+}
+
+/* Button positioning within cards */
+.card .btn,
+.card .button,
+.card button,
+.idea-card .btn,
+.idea-card .button,
+.idea-card button,
+.profile-card .btn,
+.profile-card .button,
+.profile-card button,
+.section-card .btn,
+.section-card .button,
+.section-card button,
+.stats-card .btn,
+.stats-card .button,
+.stats-card button {
+  position: relative; /* Ensure buttons stay within card context */
+  z-index: 1; /* Keep buttons above other content */
+  margin: 4px; /* Prevent buttons from touching card edges */
+  flex-shrink: 0; /* Prevent buttons from being compressed */
+}
+
+/* Flex container adjustments for cards */
+.card-content,
+.card-body,
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Ensure card actions/buttons stay at bottom */
+.card-actions {
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+/* Handle long content within cards */
+.card-title,
+.card-text,
+.card-description {
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.4;
+}
+
+/* Prevent images and media from overflowing cards */
+.card img,
+.idea-card img,
+.profile-card img,
+.section-card img,
+.stats-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Scrollable content areas if needed */
+.card-scrollable {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Fix for specific button groups within cards */
+.button-group,
+.btn-group,
+.card-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  width: 100%;
+}
+
+.button-group > *,
+.btn-group > *,
+.card-buttons > * {
+  flex: 0 0 auto; /* Don't grow or shrink */
+  min-width: 0; /* Allow shrinking if absolutely necessary */
+}
