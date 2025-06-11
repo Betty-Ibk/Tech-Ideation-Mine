@@ -695,3 +695,491 @@ button:hover,
   flex: 0 0 auto; /* Don't grow or shrink */
   min-width: 0; /* Allow shrinking if absolutely necessary */
 }
+
+/* Additional to remove BLUE highlights on buttons */
+/* Remove blue tap highlight and unwanted focus states on all buttons */
+/* This affects all button elements, classes, and interactive elements */
+
+button,
+.btn,
+.button,
+.vote-button,
+.comment-button,
+.vote-btn,
+.comment-btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+a.btn,
+a.button {
+  /* Remove tap highlight on mobile devices */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  /* Remove default focus outline */
+  outline: none;
+  
+  /* Remove default active/focus background */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Remove focus states that cause blue backgrounds */
+button:focus,
+.btn:focus,
+.button:focus,
+.vote-button:focus,
+.comment-button:focus,
+.vote-btn:focus,
+.comment-btn:focus,
+.btn-primary:focus,
+.btn-secondary:focus,
+.btn-outline:focus,
+input[type="button"]:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+a.btn:focus,
+a.button:focus {
+  outline: none !important;
+  background-color: var(--primary-500) !important;
+  border-color: var(--primary-600) !important;
+  box-shadow: none !important;
+}
+
+/* Remove active states that cause blue backgrounds */
+button:active,
+.btn:active,
+.button:active,
+.vote-button:active,
+.comment-button:active,
+.vote-btn:active,
+.comment-btn:active,
+.btn-primary:active,
+.btn-secondary:active,
+.btn-outline:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+a.btn:active,
+a.button:active {
+  outline: none !important;
+  background-color: var(--primary-600) !important;
+  border-color: var(--primary-700) !important;
+  box-shadow: none !important;
+  transform: translateY(1px); /* Slight press effect instead of color change */
+}
+
+/* Dark theme focus and active states */
+[data-theme="dark"] button:focus,
+[data-theme="dark"] .btn:focus,
+[data-theme="dark"] .button:focus,
+[data-theme="dark"] .vote-button:focus,
+[data-theme="dark"] .comment-button:focus,
+[data-theme="dark"] .vote-btn:focus,
+[data-theme="dark"] .comment-btn:focus,
+[data-theme="dark"] .btn-primary:focus,
+[data-theme="dark"] .btn-secondary:focus,
+[data-theme="dark"] .btn-outline:focus,
+[data-theme="dark"] input[type="button"]:focus,
+[data-theme="dark"] input[type="submit"]:focus,
+[data-theme="dark"] input[type="reset"]:focus,
+[data-theme="dark"] a.btn:focus,
+[data-theme="dark"] a.button:focus {
+  outline: none !important;
+  background-color: var(--primary-500) !important;
+  border-color: var(--primary-600) !important;
+  box-shadow: none !important;
+}
+
+[data-theme="dark"] button:active,
+[data-theme="dark"] .btn:active,
+[data-theme="dark"] .button:active,
+[data-theme="dark"] .vote-button:active,
+[data-theme="dark"] .comment-button:active,
+[data-theme="dark"] .vote-btn:active,
+[data-theme="dark"] .comment-btn:active,
+[data-theme="dark"] .btn-primary:active,
+[data-theme="dark"] .btn-secondary:active,
+[data-theme="dark"] .btn-outline:active,
+[data-theme="dark"] input[type="button"]:active,
+[data-theme="dark"] input[type="submit"]:active,
+[data-theme="dark"] input[type="reset"]:active,
+[data-theme="dark"] a.btn:active,
+[data-theme="dark"] a.button:active {
+  outline: none !important;
+  background-color: var(--primary-600) !important;
+  border-color: var(--primary-700) !important;
+  box-shadow: none !important;
+  transform: translateY(1px);
+}
+
+/* Special handling for outline/secondary buttons */
+.btn-outline:focus,
+.btn-secondary:focus,
+button.outline:focus,
+button.secondary:focus {
+  background-color: var(--primary-50) !important;
+  color: var(--primary-700) !important;
+  border-color: var(--primary-600) !important;
+}
+
+.btn-outline:active,
+.btn-secondary:active,
+button.outline:active,
+button.secondary:active {
+  background-color: var(--primary-100) !important;
+  color: var(--primary-800) !important;
+  border-color: var(--primary-700) !important;
+  transform: translateY(1px);
+}
+
+/* Dark theme outline/secondary button states */
+[data-theme="dark"] .btn-outline:focus,
+[data-theme="dark"] .btn-secondary:focus,
+[data-theme="dark"] button.outline:focus,
+[data-theme="dark"] button.secondary:focus {
+  background-color: var(--primary-900) !important;
+  color: var(--primary-200) !important;
+  border-color: var(--primary-400) !important;
+}
+
+[data-theme="dark"] .btn-outline:active,
+[data-theme="dark"] .btn-secondary:active,
+[data-theme="dark"] button.outline:active,
+[data-theme="dark"] button.secondary:active {
+  background-color: var(--primary-800) !important;
+  color: var(--primary-100) !important;
+  border-color: var(--primary-300) !important;
+  transform: translateY(1px);
+}
+
+/* Remove any remaining browser-specific tap highlights */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove blue highlights from ALL interactive elements */
+a, 
+button, 
+input, 
+select, 
+textarea,
+[role="button"],
+[tabindex],
+.avatar,
+.user-avatar,
+.profile-avatar,
+.profile-picture,
+.profile-img,
+.user-img,
+.clickable,
+.interactive,
+.nav-item,
+.nav-link,
+.menu-item,
+.dropdown-item,
+.dropdown-toggle,
+.card,
+.idea-card,
+.profile-card,
+.section-card,
+.stats-card,
+.vote-box,
+.comment-box,
+.tag,
+.badge,
+.chip,
+.tab,
+.tab-item,
+.accordion-header,
+.collapse-header,
+.modal-close,
+.close,
+.toggle,
+.switch,
+.checkbox,
+.radio,
+.slider,
+.range,
+.pagination-item,
+.page-link,
+.breadcrumb-item,
+.list-item,
+.table-row,
+tr,
+td,
+th,
+.sortable,
+.draggable,
+.resizable,
+.selectable,
+[onclick],
+[data-toggle],
+[data-dismiss],
+[data-target],
+[data-bs-toggle],
+[data-bs-dismiss],
+[data-bs-target] {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Avatar and profile image specific styles */
+.avatar,
+.user-avatar,
+.profile-avatar,
+.profile-picture,
+.profile-img,
+.user-img,
+img[class*="avatar"],
+img[class*="profile"] {
+  /* Remove tap highlight */
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  /* Remove default focus outline */
+  outline: none !important;
+  
+  /* Remove any default styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Avatar focus and active states */
+.avatar:focus,
+.user-avatar:focus,
+.profile-avatar:focus,
+.profile-picture:focus,
+.profile-img:focus,
+.user-img:focus,
+img[class*="avatar"]:focus,
+img[class*="profile"]:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px var(--primary-500) !important;
+  background: none !important;
+}
+
+.avatar:active,
+.user-avatar:active,
+.profile-avatar:active,
+.profile-picture:active,
+.profile-img:active,
+.user-img:active,
+img[class*="avatar"]:active,
+img[class*="profile"]:active {
+  outline: none !important;
+  transform: scale(0.98);
+  background: none !important;
+}
+
+/* Dark theme avatar states */
+[data-theme="dark"] .avatar:focus,
+[data-theme="dark"] .user-avatar:focus,
+[data-theme="dark"] .profile-avatar:focus,
+[data-theme="dark"] .profile-picture:focus,
+[data-theme="dark"] .profile-img:focus,
+[data-theme="dark"] .user-img:focus,
+[data-theme="dark"] img[class*="avatar"]:focus,
+[data-theme="dark"] img[class*="profile"]:focus {
+  box-shadow: 0 0 0 2px var(--primary-400) !important;
+  background: none !important;
+}
+
+/* Navigation and menu items */
+.nav-item,
+.nav-link,
+.menu-item,
+.dropdown-item,
+.dropdown-toggle,
+.breadcrumb-item {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+}
+
+.nav-item:focus,
+.nav-link:focus,
+.menu-item:focus,
+.dropdown-item:focus,
+.dropdown-toggle:focus,
+.breadcrumb-item:focus {
+  outline: none !important;
+  background-color: var(--primary-50) !important;
+  color: var(--primary-700) !important;
+}
+
+.nav-item:active,
+.nav-link:active,
+.menu-item:active,
+.dropdown-item:active,
+.dropdown-toggle:active,
+.breadcrumb-item:active {
+  outline: none !important;
+  background-color: var(--primary-100) !important;
+  color: var(--primary-800) !important;
+  transform: translateY(1px);
+}
+
+/* Dark theme navigation states */
+[data-theme="dark"] .nav-item:focus,
+[data-theme="dark"] .nav-link:focus,
+[data-theme="dark"] .menu-item:focus,
+[data-theme="dark"] .dropdown-item:focus,
+[data-theme="dark"] .dropdown-toggle:focus,
+[data-theme="dark"] .breadcrumb-item:focus {
+  background-color: var(--primary-900) !important;
+  color: var(--primary-200) !important;
+}
+
+[data-theme="dark"] .nav-item:active,
+[data-theme="dark"] .nav-link:active,
+[data-theme="dark"] .menu-item:active,
+[data-theme="dark"] .dropdown-item:active,
+[data-theme="dark"] .dropdown-toggle:active,
+[data-theme="dark"] .breadcrumb-item:active {
+  background-color: var(--primary-800) !important;
+  color: var(--primary-100) !important;
+}
+
+/* Card and interactive elements */
+.card,
+.idea-card,
+.profile-card,
+.section-card,
+.stats-card {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+}
+
+.card:focus,
+.idea-card:focus,
+.profile-card:focus,
+.section-card:focus,
+.stats-card:focus {
+  outline: none !important;
+  box-shadow: 0 4px 12px var(--shadow-color), 0 0 0 2px var(--primary-500) !important;
+}
+
+.card:active,
+.idea-card:active,
+.profile-card:active,
+.section-card:active,
+.stats-card:active {
+  outline: none !important;
+  transform: translateY(1px);
+}
+
+/* Tags and badges */
+.tag,
+.badge,
+.chip {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+}
+
+.tag:focus,
+.badge:focus,
+.chip:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px var(--primary-500) !important;
+}
+
+.tag:active,
+.badge:active,
+.chip:active {
+  outline: none !important;
+  transform: scale(0.95);
+}
+
+/* Form elements */
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  border-color: var(--primary-500) !important;
+  box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.2) !important;
+}
+
+/* Dark theme form focus */
+[data-theme="dark"] input:focus,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] textarea:focus {
+  border-color: var(--primary-400) !important;
+  box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.3) !important;
+}
+
+/* Links */
+a {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+}
+
+a:focus {
+  outline: none !important;
+  text-decoration: underline !important;
+  color: var(--primary-600) !important;
+}
+
+a:active {
+  outline: none !important;
+  color: var(--primary-700) !important;
+}
+
+[data-theme="dark"] a:focus {
+  color: var(--primary-300) !important;
+}
+
+[data-theme="dark"] a:active {
+  color: var(--primary-200) !important;
+}
+@media (max-width: 768px) {
+  button,
+  .btn,
+  .button,
+  .vote-button,
+  .comment-button,
+  .vote-btn,
+  .comment-btn {
+    /* Ensure no tap highlights on mobile */
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+    
+    /* Provide tactile feedback without color changes */
+    transition: transform 0.1s ease !important;
+  }
+  
+  button:active,
+  .btn:active,
+  .button:active,
+  .vote-button:active,
+  .comment-button:active,
+  .vote-btn:active,
+  .comment-btn:active {
+    transform: scale(0.98) !important;
+  }
+}
