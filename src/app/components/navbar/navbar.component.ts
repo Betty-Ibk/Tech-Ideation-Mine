@@ -33,14 +33,14 @@ import { ThemeService } from '../../services/theme.service';
             <div class="logo">
               <img src="assets/images/gtco-logo.png" alt="GTCO Logo" class="logo-image">
               <div class="logo-text-container">
-                <span class="logo-text">IDEATION</span>
+                <span class="logo-text">IDEA</span>
                 <span class="logo-subtitle"> Mine</span>
               </div>
             </div>
           </div>
           
           <div class="nav-actions">
-            <a routerLink="/new-idea" class="btn btn-primary pulse-animation">
+            <a *ngIf="!isAdmin" routerLink="/new-idea" class="btn btn-primary pulse-animation">
              <span class="btn-text">+ New Idea</span>
             <span class="btn-text-mobile">+</span>  
            </a>
@@ -72,16 +72,16 @@ import { ThemeService } from '../../services/theme.service';
       </div>
       <div class="sidebar-content">
         <nav class="nav-menu">
-          <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item" (click)="closeMenuIfSmallScreen()">
+          <a *ngIf="!isAdmin" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item" (click)="closeMenuIfSmallScreen()">
             <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ff7a00"><path d="M513.33-580v-260H840v260H513.33ZM120-446.67V-840h326.67v393.33H120ZM513.33-120v-393.33H840V-120H513.33ZM120-120v-260h326.67v260H120Zm66.67-393.33H380v-260H186.67v260ZM580-186.67h193.33v-260H580v260Zm0-460h193.33v-126.66H580v126.66Zm-393.33 460H380v-126.66H186.67v126.66ZM380-513.33Zm200-133.34Zm0 200ZM380-313.33Z"/></svg></span>
             <span class="nav-label">Dashboard</span>
           </a>
-          <a routerLink="/popular" routerLinkActive="active" class="nav-item" (click)="closeMenuIfSmallScreen()">
+          <a *ngIf="!isAdmin" routerLink="/popular" routerLinkActive="active" class="nav-item" (click)="closeMenuIfSmallScreen()">
             <span class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ff7a00"><path d="m480-174-25.13-23.03Q355.31-288 290.44-353.12q-64.88-65.11-102.77-114.74-37.9-49.63-52.79-89.51Q120-597.25 120-636.92q0-75.06 50.95-126.07Q221.9-814 296.92-814q54.05 0 100.77 28.54T480-702.15q37.54-55.75 83.44-83.8Q609.34-814 663.08-814q75.02 0 125.97 51.01T840-636.92q0 39.67-14.88 79.55-14.89 39.88-52.73 89.4-37.84 49.52-102.64 114.74-64.8 65.23-164.62 156.2L480-174Zm0-45.59q97.47-88.64 160.42-151.86 62.94-63.22 99.85-110.25 36.91-47.02 51.4-83.35 14.48-36.34 14.48-71.78 0-61.53-40.82-102.43-40.82-40.89-102.1-40.89-49.76 0-91.18 28.8-41.41 28.81-76.72 88.68h-30.82q-35.92-59.97-77.19-88.73-41.28-28.75-90.55-28.75-60.51 0-101.72 40.89-41.2 40.9-41.2 102.72 0 35.29 14.57 71.65 14.56 36.37 51.12 83.39 36.56 47.01 99.95 109.97Q382.87-308.56 480-219.59Zm0-280.28Z"/></svg></span>
             <span class="nav-label">Popular</span>
           </a>
-          <a 
-            [routerLink]="isAdmin ? '/admin/my-ideas' : '/my-ideas'" 
+          <a *ngIf="!isAdmin" 
+            [routerLink]="!isAdmin ? '/my-ideas' : '/admin/my-ideas'" 
             routerLinkActive="active" 
             class="nav-item" 
             (click)="closeMenuIfSmallScreen()"

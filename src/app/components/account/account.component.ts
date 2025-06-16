@@ -35,7 +35,7 @@ import { ThemeUtilsService } from '../../services/theme-utils.service';
             <div class="section-header">
               <h3 class="section-title">Personal Information</h3>
               <p class="section-description">Update your personal details and contact information</p>
-            </div>
+            </div>admin
             <div class="section-content">
               <div class="form-group">
                 <label>Display Name</label>
@@ -54,7 +54,7 @@ import { ThemeUtilsService } from '../../services/theme-utils.service';
           
           <div class="section-card">
             <div class="section-header">
-              <h3 class="section-title">Notification Settings</h3>
+              <h3 class="section-title">Email Notification Settings</h3>
               <p class="section-description">Manage how and when you receive updates</p>
             </div>
             <div class="section-content">
